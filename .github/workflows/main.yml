@@ -84,9 +84,9 @@ jobs:
       - name: Install dependencies
         run: |
           # Disable fc-cache on fontconfig install. Because it's slow.
-          brew upgrade
           sed -i.bak '/fc-cache/d' "$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/fontconfig.rb"
           brew install pkg-config ruby cmake ninja
+          brew upgrade
           brew install cairo coreutils fontconfig gettext giflib gtk+3 jpeg libpng libspiro libtiff libtool libuninameslist python@3 wget woff2
           PREFIX=$GITHUB_WORKSPACE/target
           echo "PREFIX=$PREFIX" >> $GITHUB_ENV
