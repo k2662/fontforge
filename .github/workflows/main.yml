@@ -84,6 +84,7 @@ jobs:
       - name: Install dependencies
         run: |
           # Disable fc-cache on fontconfig install. Because it's slow.
+          brew install fontconfig
           sed -i.bak '/fc-cache/d' "$(brew --prefix)/Homebrew/Library/Taps/homebrew/homebrew-core/Formula/fontconfig.rb"
           brew install pkg-config ruby cmake ninja
           brew upgrade
